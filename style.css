@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap');
+
+:root{
+    --LightCyan: hsl(193, 38%, 86%);
+    --NeonGreen: hsl(150, 100%, 66%);
+    --GrayishBlue: hsl(217, 19%, 38%);
+    --DarkGrayishBlue: hsl(217, 19%, 24%);
+    --DarkBlue: hsl(218, 23%, 16%);
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    font-size: 28px;
+    font-family: "Manrope";
+}
+
+img,svg{
+    width:100%;
+    height: auto;
+}
+body{
+    background-color: var(--DarkBlue);
+}
+main{
+    display: grid;
+    align-items: center;
+
+    justify-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+h1{
+    opacity: 0;
+    letter-spacing: .2rem;
+    grid-area: title;
+    font-size: .5rem;
+    text-transform: uppercase;
+    transition: opacity .2s ease;
+}
+h1 > span{
+    font-size: .5rem;
+}
+p{
+    
+    opacity: 0;
+    color: var(--LightCyan);
+    grid-area: description;
+    font-size: 1rem;
+    width: 100%;
+    margin-block:0px;
+    margin-inline: 0px;
+    word-wrap: break-word;
+    transition: opacity .2s ease;
+}
+p:before{
+    content: '"';
+}
+
+p:after{
+    content: '"';
+}
+
+.wrapper{
+    background-color: var(--DarkGrayishBlue);
+    border-radius: .5em;
+    position: relative;
+    display: grid;
+    padding: 1em;
+    position: relative;
+
+    text-align: center;
+    grid-auto-rows: minmax(1rem, auto);
+    grid-template-areas: 'title'
+                         '.'
+                         '.'
+                         'description'
+                         
+                         'divider'
+                         'button';
+
+}
+
+.divider{
+    grid-area: divider;
+    text-align: center;
+    
+    height: 16px;
+    background-repeat: no-repeat;
+    width: 100%;
+
+}
+
+.content{
+    align-items: center;
+    justify-items: center;
+    grid-row: 3/4;
+}
+
+h1{
+    color: var(--NeonGreen);
+}
+
+button{
+    position: absolute;
+    left:0;
+    right:0;
+    bottom: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    background-image: url(images/icon-dice.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: var(--NeonGreen);
+    background-size: 45%;
+    border:none;
+    border-radius: 50%;
+    cursor: pointer;
+
+}
+
+@media (hover: hover) and (pointer: fine) {
+    button:hover{
+        box-shadow: var(--NeonGreen) 0px 0px 1rem;
+    }
+  }
+
+
+
+@media screen and (min-width: 280px) {
+    .wrapper{
+        height: auto;
+
+        width: 90%;
+    }
+
+    .divider{
+        content: url('images/pattern-divider-mobile.svg');
+    }
+    button{
+        transform: translateY(80%);
+        height: 80px;
+        width: 80px;
+    }
+}
+
+@media screen and (min-width: 800px) {
+
+    .divider{
+        content: url('images/pattern-divider-desktop.svg');
+        grid-row: 6/7;
+    }
+    .wrapper{
+        height: auto;
+        padding: 2rem 3rem;
+        width: 600px;
+        gap: .5em;
+        grid-auto-rows: minmax(1rem, auto);
+    }
+
+    .content{
+        grid-row: 2/6;
+    }
+    button{
+        transform: translateY(80%);
+        height: 80px;
+        width: 80px;
+    }
+}
